@@ -102,36 +102,53 @@
       </audio>
     </div>
     <script src="popup.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#jqxButton").jqxButton({ width: '150', height: '25'});
-        $("#jqxSubmitButton").jqxButton({ width: '150', height: '25'});
-        $("#jqxDisabledButton").jqxButton({ disabled: true, width: '150', height: '25'});
-        $("#jqxButton").on('click', function () {
-            alert('Button Clicked');
+    <div id='content'>
+      <script>
+        $(document).ready(function () {
+          $("#jqxButton").jqxButton({ width: '150', height: '25'});
+          $("#jqxStartButton").jqxButton({ width: '150', height: '25'});
+          $("#jqxPauseButton").jqxButton({ disabled: true, width: '150', height: '25'});
+          $("#jqxButton").on('click', function () {
+              alert('Button Clicked');
+          });
+          // Create Start Button.
+          $("#jqxStartButton").on('click', function () {
+              alert('Start Button Clicked');
+          });
+          // Create Repeat Button.
+          $("#jqxRepeatButton").jqxRepeatButton({ width: '150', height: '25' });
+          // Set its delay(the interval between two clicks) property.
+          $("#jqxButton").jqxRepeatButton({ delay: 25 });
+          var i = 0;
+          // Subscribe to Click events.
+          $("#jqxButton").on('click', function () {
+              $("#log").html("Clicks: " + i);
+              i++;
+          });
         });
-        $("#jqxSubmitButton").on('click', function () {
-            alert('Submit Button Clicked');
-        });
-      });
-    </script>
-    <div id='jqxWidget' class="jqx-widget">
-      <div>
-          <label for="jqxButton">Button</label>
-          <input type="button" value="Button" id='jqxButton' />
+      </script>
+      <div id='jqxWidget' class="jqx-widget">
+        <div>
+            <label for="jqxButton">Button</label>
+            <input type="button" value="Button" id='jqxButton' />
+        </div>
+        <div class="jqx-margin-top">
+            <label for="jqxStartButton">Start</label>
+            <input type="button" value="Start" id='jqxStartButton'/>
+        </div>
+        <div class="jqx-margin-top">
+            <label for="jqxPauseButton">Pause</label>
+            <input type="button" value="Pause" id='jqxPauseButton' />
+        </div>
+        <div class="jqx-margin-top">
+            <label for="jqxResetButton">Reset</label>
+            <input type="button" value="Reset" id='jqxResetButton' />
+        </div>
+        <div class="jqx-margin-top">
+            <label for="jqxRepeatButton">Repeat</label>
+            <input type="repeat" value="Repeat" id='jqxRepeatButton' />
+        </div>
       </div>
-      <div class="jqx-margin-top">
-          <label for="jqxStartButton">Start</label>
-          <input type="button" value="Start" id='jqxStartButton'/>
-      </div>
-      <div class="jqx-margin-top">
-          <label for="jqxPauseButton">Pause</label>
-          <input type="button" value="Pause" id='jqxPauseButton' />
-      </div>
-      <div class="jqx-margin-top">
-        <label for="jqxResetButton">Reset</label>
-        <input type="button" value="Reset" id='jqxResetButton' />
     </div>
-    </div>
-  </body>  </body>
+  </body>
 </html>

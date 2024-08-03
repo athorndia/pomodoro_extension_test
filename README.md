@@ -96,3 +96,5 @@ Music / Audio Credit:
 ![contextmenu](https://github.com/hellopao/view-in-browser/raw/master/./images/contextmenu.png)
 
 ![knob](https://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxknob/jquery-knob-getting-started.htm)
+
+https://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxbutton/jquery-button-getting-started.htm?search=
