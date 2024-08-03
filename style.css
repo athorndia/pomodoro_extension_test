@@ -12,9 +12,18 @@ body {
 }
 
 h1 {
+  position: relative;
   margin-top: 20%;
-  text-align: center;
+  text-align: center; /* Center the text */
   color: #ccc;
+}
+
+h1 .center {
+  position: absolute; /* Position the image absolutely */
+  left: 50%; /* Move to the center of the h1 */
+  transform: translateX(-50%); /* Adjust to center the image */
+  top: -40px; /* Adjust this value to position the image vertically */
+  margin-bottom: 10px; /* Add space between the image and the h1 text */
 }
 
 .row {
@@ -90,4 +99,20 @@ h1 {
 
 .hidden {
   display: none;
+}
+
+.inputField {
+  left: 110px;
+  top: 323px;
+  position: absolute;
+  background: transparent;
+  border: none;
+}
+text.jqx-knob-label {
+  font-size: 20px;
+}
+.inputField .jqx-input-content {
+  background: transparent;
+  font-size: 20px;
+  color: grey;
 }

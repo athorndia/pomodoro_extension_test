@@ -82,3 +82,17 @@
 
 - **Editing Files**: You can edit the files directly in VS Code. Changes will take effect after you refresh the extension in Chrome (click the refresh icon on the extensions page).
 - **Live Server**: If you want to test the HTML file separately, consider using the Live Server extension in VS Code.
+
+Music / Audio Credit:
+
+1. Downfall 3 (downfall-3-208028.mp3) Sound Effect by <a href="https://pixabay.com/users/soundreality-31074404/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=208028">Jurij</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=208028">Pixabay</a>
+
+2. DEEP STRANGE WHOOSH Sound Effect by <a href="https://pixabay.com/users/aiko_changing-30278997/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=183845">Aiko Matsuda</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=183845">Pixabay</a>
+
+3. Countdown Sound Sound Effect by <a href="https://pixabay.com/users/lesiakower-25701529/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151797">Lesiakower</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151797">Pixabay</a>
+
+4. Clock Ticking (60 second countdown) Sound Effect by <a href="https://pixabay.com/users/studiokolomna-2073170/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=118231">StudioKolomna</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=118231">Pixabay</a>
+
+![contextmenu](https://github.com/hellopao/view-in-browser/raw/master/./images/contextmenu.png)
+
+![knob](https://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxknob/jquery-knob-getting-started.htm)

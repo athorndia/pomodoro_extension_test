@@ -3,61 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gojo Pomodoro Timer</title>
+  <head>
+
+    <title id="Description">Anime Gojo Pomodoro Timer using jQuery widgets</title>
+    <link
+      rel="stylesheet"
+      href="../../jqwidgets/styles/jqx.base.css"
+      type="text/css"
+    />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-knob/1.2.2/jquery.knob.min.js"></script>
-    <!-- jQuery Knob -->
-    <title>Pomodoro Timer</title>
+    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxknob.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxnumberinput.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FX5PV9DNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2FX5PV9DNT");
+    </script>
   </head>
-  <body>
-    <div class="container">
+  <body class="default">
+    <div id="container">
       <div class="header">
-        <h1>Pomodoro Timer</h1>
+        <h1>
+          <img src="icon.png" alt="Gojo" height="100" width="100"/>
+          <br><br>
+          Pomodoro Timer
+        </h1>
       </div>
 
       <div class="row">
         <div class="col-half knob-wrapper">
-          <label for="session-knob">Session Length</label>
-          <input
-            type="text"
-            value="25"
-            size="5"
-            id="session-knob"
-            placeholder="25 min"
-          />
+          <label for="session-length">Session Length</label>
+          <input type="range" id="session-length" min="1" max="60" value="25" />
+          <span id="session-value">25 min</span>
         </div>
         <div class="col-half knob-wrapper">
-          <label for="break-knob">Break Length</label>
-          <input
-            type="text"
-            value="5"
-            size="5"
-            id="break-knob"
-            placeholder="5 min"
-          />
+          <label for="break-length">Break Length</label>
+          <input type="range" id="break-length" min="1" max="30" value="5" />
+          <span id="break-value">5 min</span>
         </div>
       </div>
-
+      <div>
+        <label for="jqxbutton">Button</label>
+        <input type="button" value="Button" id='jqxbutton' />
+      </div>
       <div class="buttons">
-        <a id="cmd-reset" class="btn btn-red"
-          ><i class="fa fa-undo"></i> Reset</a
-        >
-        <a id="cmd-pause" class="btn btn-yellow hidden"
-          ><i class="fa fa-pause"></i> Pause</a
-        >
-        <a id="cmd-go" class="btn btn-green"
-          ><i class="fa fa-play"></i> Start</a
-        >
+        <a id="cmd-reset" class="btn btn-red">
+          <i class="fa fa-undo"></i> Reset
+        </a>
+        <a id="cmd-pause" class="btn btn-yellow hidden">
+          <i class="fa fa-pause"></i> Pause
+        </a>
+        <a id="cmd-go" class="btn btn-green">
+          <i class="fa fa-play"></i> Start
+        </a>
       </div>
 
       <div class="buttons-mute">
-        <a id="cmd-mute" class="btn btn-mute"
-          ><i class="fa fa-volume-up"></i
-        ></a>
-        <a id="cmd-unmute" class="btn btn-mute hidden"
-          ><i class="fa fa-volume-off"></i
-        ></a>
+        <a id="cmd-mute" class="btn btn-mute">
+          <i class="fa fa-volume-up"></i>
+        </a>
+        <a id="cmd-unmute" class="btn btn-mute hidden">
+          <i class="fa fa-volume-off"></i>
+        </a>
       </div>
 
       <div class="timer knob-wrapper">
@@ -73,15 +91,47 @@
       </div>
 
       <audio id="snd-endofbreak" preload="auto">
-        <source src="http://owentosh.com/public/codepen/endofbreak.m4a" />
-        <source src="http://owentosh.com/public/codepen/endofbreak.wav" />
+        <source src="audio/1-start-downfall-3-208028.mp3" />
+        <source
+          src="audio/2-filler-clock-ticking-60-second-countdown-118231.mp3"
+        />
       </audio>
-
       <audio id="snd-endofsession" preload="auto">
-        <source src="http://owentosh.com/public/codepen/endofsession.m4a" />
-        <source src="http://owentosh.com/public/codepen/endofsession.wav" />
+        <source src="audio/3-warning-deep-strange-whoosh-183845.mp3" />
+        <source src="audio/4-end-countdown-sound-effect-8-bit-151797.mp3" />
       </audio>
     </div>
     <script src="popup.js"></script>
-  </body>
+    <script>
+      $(document).ready(function () {
+        $("#jqxButton").jqxButton({ width: '150', height: '25'});
+        $("#jqxSubmitButton").jqxButton({ width: '150', height: '25'});
+        $("#jqxDisabledButton").jqxButton({ disabled: true, width: '150', height: '25'});
+        $("#jqxButton").on('click', function () {
+            alert('Button Clicked');
+        });
+        $("#jqxSubmitButton").on('click', function () {
+            alert('Submit Button Clicked');
+        });
+      });
+    </script>
+    <div id='jqxWidget' class="jqx-widget">
+      <div>
+          <label for="jqxButton">Button</label>
+          <input type="button" value="Button" id='jqxButton' />
+      </div>
+      <div class="jqx-margin-top">
+          <label for="jqxStartButton">Start</label>
+          <input type="button" value="Start" id='jqxStartButton'/>
+      </div>
+      <div class="jqx-margin-top">
+          <label for="jqxPauseButton">Pause</label>
+          <input type="button" value="Pause" id='jqxPauseButton' />
+      </div>
+      <div class="jqx-margin-top">
+        <label for="jqxResetButton">Reset</label>
+        <input type="button" value="Reset" id='jqxResetButton' />
+    </div>
+    </div>
+  </body>  </body>
 </html>

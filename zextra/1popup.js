@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#container").jqxKnob({
+  $("container").jqxKnob({
     value: 60,
     min: 0,
     max: 120,
@@ -7,6 +7,7 @@ $(document).ready(function () {
     endAngle: 420,
     snapToStep: true,
     rotation: "clockwise",
+    // size: 150, // Adjust this value to make the knob smaller or larger
     style: {
       stroke: "#dfe3e9",
       strokeWidth: 3,
@@ -50,8 +51,10 @@ $(document).ready(function () {
       thickness: 20,
     },
   });
+
   var input = $('<div class="inputField">');
-  $("#container").append(input);
+
+  $("container").append(input);
   var inputOptions = {
     width: 180,
     height: "40px",
@@ -62,19 +65,23 @@ $(document).ready(function () {
     decimalDigits: 1,
     inputMode: "simple",
   };
+
   $(input).jqxNumberInput(inputOptions);
+
   $(input).on("mousedown", function (event) {
     event.stopPropagation();
   });
+
   $(input).on("keyup", function () {
     var val = $(this).val();
     $("#container").val(val);
   });
+
   $(input).on("change", function () {
     var val = $(this).val();
-    $("#container").val(val);
+    $("container").val(val);
   });
-  $("#container").on("change", function (event) {
+  $("container").on("change", function (event) {
     if (
       event.args.changeSource == "propertyChange" ||
       event.args.changeSource == "val"
