@@ -3,13 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-knob/1.2.2/jquery.knob.min.js"></script>
+    <!-- jQuery Knob -->
     <title>Pomodoro Timer</title>
-    <script src="popup.js" defer></script>
   </head>
   <body>
-    <h1>Pomodoro Timer</h1>
-    <input type="number" id="minutes" placeholder="Minutes" />
-    <button id="start">Start</button>
-    <p id="message"></p>
+    <div class="container">
+      <div class="header">
+        <h1>Pomodoro Timer</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-half knob-wrapper">
+          <label for="session-knob">Session Length</label>
+          <input
+            type="text"
+            value="25"
+            size="5"
+            id="session-knob"
+            placeholder="25 min"
+          />
+        </div>
+        <div class="col-half knob-wrapper">
+          <label for="break-knob">Break Length</label>
+          <input
+            type="text"
+            value="5"
+            size="5"
+            id="break-knob"
+            placeholder="5 min"
+          />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <a id="cmd-reset" class="btn btn-red"
+          ><i class="fa fa-undo"></i> Reset</a
+        >
+        <a id="cmd-pause" class="btn btn-yellow hidden"
+          ><i class="fa fa-pause"></i> Pause</a
+        >
+        <a id="cmd-go" class="btn btn-green"
+          ><i class="fa fa-play"></i> Start</a
+        >
+      </div>
+
+      <div class="buttons-mute">
+        <a id="cmd-mute" class="btn btn-mute"
+          ><i class="fa fa-volume-up"></i
+        ></a>
+        <a id="cmd-unmute" class="btn btn-mute hidden"
+          ><i class="fa fa-volume-off"></i
+        ></a>
+      </div>
+
+      <div class="timer knob-wrapper">
+        <label for="timer-display">Timer Display</label>
+        <input
+          type="text"
+          value="1500"
+          size="5"
+          id="timer-display"
+          placeholder="Timer"
+          readonly
+        />
+      </div>
+
+      <audio id="snd-endofbreak" preload="auto">
+        <source src="http://owentosh.com/public/codepen/endofbreak.m4a" />
+        <source src="http://owentosh.com/public/codepen/endofbreak.wav" />
+      </audio>
+
+      <audio id="snd-endofsession" preload="auto">
+        <source src="http://owentosh.com/public/codepen/endofsession.m4a" />
+        <source src="http://owentosh.com/public/codepen/endofsession.wav" />
+      </audio>
+    </div>
+    <script src="popup.js"></script>
   </body>
 </html>
